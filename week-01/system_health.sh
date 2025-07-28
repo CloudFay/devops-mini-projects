@@ -1,6 +1,17 @@
 #!/bin/bash
 
 # ════ SYSTEM HEALTH REPORT ════
+
+# Create logs directory if it doesn't exist
+LOG_DIR="./logs"
+mkdir -p "$LOG_DIR"
+
+# Generate timestamped log file
+TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
+LOG_FILE="$LOG_DIR/system_health_$TIMESTAMP.log"
+
+# Redirect output to both terminal and log file
+{
 echo "-----------------------------------"
 echo "📊 System Health Report - $(date)"
 echo "-----------------------------------"
@@ -33,4 +44,4 @@ echo -e "\n🔗 Active Network Connections:"
 ss -tunap | head -n 10 || netstat -tunap | head -n 10
 
 echo -e "\n✅ Report Completed!"
-
+} | tee "$LOG_FILE"
