@@ -1,4 +1,4 @@
-name: System Health Check
+name: Weekly System Health Check
 
 on:
   push:
@@ -13,7 +13,10 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Run Health Check Script
-        run: bash week-01/system_health.sh
+      - name: Make script executable
+        run: chmod +x ~/devops-mini-projects/week-01/system_health.sh
+      
+      - name: Run system health check
+        run: ~/devops-mini-projects/week-01/system_health.sh
