@@ -1,10 +1,10 @@
-# Week 01 – DevOps Basics + Linux + Git + Bash
+## Week 01 – DevOps Basics + Linux + Git + Bash
 
 ## 🎯 Focus
 Understand DevOps mindset, Linux CLI, Git workflows, and Bash scripting fundamentals.
 
 ## 🛠 Tools & Concepts
-- Linux (Ubuntu)
+- Linux (Ubuntu/Kali)
 - Git / GitHub
 - Bash scripting
 - GitHub Actions

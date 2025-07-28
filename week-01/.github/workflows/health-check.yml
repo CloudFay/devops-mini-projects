@@ -1,0 +1,19 @@
+name: System Health Report
+
+on:
+  push:
+    paths:
+      - 'week-01/**'
+  schedule:
+    - cron: '0 9 * * 1' # Every Monday at 9 AM UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Health Check Script
+        run: bash week-01/system_health.sh
