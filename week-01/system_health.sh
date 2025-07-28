@@ -1,47 +1,50 @@
 #!/bin/bash
 
-# ════ SYSTEM HEALTH REPORT ════
+# Ensure logs directory exists
+mkdir -p "$(dirname "$0")/../logs"
 
-# Create logs directory if it doesn't exist
-LOG_DIR="./logs"
-mkdir -p "$LOG_DIR"
+# Create timestamped log file
+timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
+log_file="$(dirname "$0")/../logs/system_health_${timestamp}.log"
 
-# Generate timestamped log file
-TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
-LOG_FILE="$LOG_DIR/system_health_$TIMESTAMP.log"
+# Warn if not run with sudo
+if [[ $EUID -ne 0 ]]; then
+  echo "⚠️  Please run this script with sudo/root privileges for complete data (especially network connections)."
+fi
 
-# Redirect output to both terminal and log file
+# Begin report
 {
-echo "-----------------------------------"
-echo "📊 System Health Report - $(date)"
-echo "-----------------------------------"
+echo "=============================================="
+echo "📊 SYSTEM HEALTH REPORT - $(date)"
+echo "=============================================="
 
-echo -e "\n🕒 Uptime:"
+echo -e "\n🕒 UPTIME:"
 uptime -p
 
-echo -e "\n💻 OS Info:"
+echo -e "\n💻 OS INFORMATION:"
 [ -f /etc/os-release ] && grep -E 'PRETTY_NAME|VERSION=' /etc/os-release
 
-echo -e "\n🧠 CPU Load:"
+echo -e "\n🧠 CPU LOAD:"
 uptime | awk -F'load average:' '{ print "Load Average:" $2 }'
 
-echo -e "\n📦 Memory Usage:"
+echo -e "\n📦 MEMORY USAGE:"
 free -h
 
-echo -e "\n💽 Disk Usage:"
+echo -e "\n💽 DISK USAGE:"
 df -hT | grep -v tmpfs
 
-echo -e "\n🔥 Top 5 CPU-consuming processes:"
+echo -e "\n🔥 TOP 5 CPU-CONSUMING PROCESSES:"
 ps -eo pid,ppid,cmd,%cpu,%mem --sort=-%cpu | head -n 6
 
-echo -e "\n💾 Top 5 Memory-consuming processes:"
+echo -e "\n💾 TOP 5 MEMORY-CONSUMING PROCESSES:"
 ps -eo pid,ppid,cmd,%cpu,%mem --sort=-%mem | head -n 6
 
-echo -e "\n🌐 Network Interfaces:"
+echo -e "\n🌐 NETWORK INTERFACES:"
 ip -brief address || ifconfig
 
-echo -e "\n🔗 Active Network Connections:"
+echo -e "\n🔗 ACTIVE NETWORK CONNECTIONS (Top 10):"
 ss -tunap | head -n 10 || netstat -tunap | head -n 10
 
-echo -e "\n✅ Report Completed!"
-} | tee "$LOG_FILE"
+echo -e "\n✅ REPORT COMPLETED!"
+echo "📁 Log file saved to: $log_file"
+} | tee "$log_file"
