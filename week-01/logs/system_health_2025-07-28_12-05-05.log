@@ -1,0 +1,62 @@
+==============================================
+📊 SYSTEM HEALTH REPORT - Mon Jul 28 12:05:05 CDT 2025
+==============================================
+
+🕒 UPTIME:
+up 18 hours, 19 minutes
+
+💻 OS INFORMATION:
+PRETTY_NAME="Kali GNU/Linux Rolling"
+VERSION="2024.4"
+
+🧠 CPU LOAD:
+Load Average: 1.44, 1.63, 1.73
+
+📦 MEMORY USAGE:
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       8.6Gi       1.1Gi       1.9Gi       4.1Gi       3.0Gi
+Swap:          976Mi       524Ki       976Mi
+
+💽 DISK USAGE:
+Filesystem     Type      Size  Used Avail Use% Mounted on
+/dev/sda4      ext4       28G   22G  4.9G  82% /
+efivarfs       efivarfs  100K   72K   24K  76% /sys/firmware/efi/efivars
+/dev/sda6      ext4      368G  5.2G  344G   2% /home
+/dev/sda1      vfat       96M   29M   68M  30% /boot/efi
+
+🔥 TOP 5 CPU-CONSUMING PROCESSES:
+    PID    PPID CMD                         %CPU %MEM
+  32491   32481 ps -eo pid,ppid,cmd,%cpu,%m  166  0.0
+  17007    2696 /opt/google/chrome/chrome - 20.6  7.3
+   2676    1939 /opt/google/chrome/chrome    7.2  4.9
+   3388    2696 /opt/google/chrome/chrome -  7.1  4.7
+   1939    1700 /usr/bin/gnome-shell         5.8  4.9
+
+💾 TOP 5 MEMORY-CONSUMING PROCESSES:
+    PID    PPID CMD                         %CPU %MEM
+  17007    2696 /opt/google/chrome/chrome - 20.6  7.3
+   3810    2696 /opt/google/chrome/chrome -  1.1  6.5
+   2676    1939 /opt/google/chrome/chrome    7.2  4.9
+   1939    1700 /usr/bin/gnome-shell         5.8  4.9
+   3388    2696 /opt/google/chrome/chrome -  7.1  4.7
+
+🌐 NETWORK INTERFACES:
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             DOWN           
+wlan0            UP             10.36.80.67/24 fe80::3239:26e1:6b77:afa6/64 
+docker0          DOWN           172.17.0.1/16 
+
+🔗 ACTIVE NETWORK CONNECTIONS (Top 10):
+Netid State      Recv-Q Send-Q                     Local Address:Port     Peer Address:PortProcess                            
+udp   UNCONN     0      0                            10.36.80.67:3702          0.0.0.0:*    users:(("python3",pid=9769,fd=9)) 
+udp   UNCONN     0      0                        239.255.255.250:3702          0.0.0.0:*    users:(("python3",pid=9769,fd=7)) 
+udp   UNCONN     0      0                             172.17.0.1:3702          0.0.0.0:*    users:(("python3",pid=9769,fd=12))
+udp   UNCONN     0      0                        239.255.255.250:3702          0.0.0.0:*    users:(("python3",pid=9769,fd=10))
+udp   ESTAB      0      0                            10.36.80.67:44773  216.58.215.170:443  users:(("chrome",pid=2941,fd=50)) 
+udp   UNCONN     0      0                            224.0.0.251:5353          0.0.0.0:*    users:(("chrome",pid=2676,fd=410))
+udp   UNCONN     0      0                                0.0.0.0:39023         0.0.0.0:*    users:(("python3",pid=9769,fd=8)) 
+udp   ESTAB      0      0                            10.36.80.67:56432  216.58.223.228:443  users:(("chrome",pid=2941,fd=60)) 
+udp   ESTAB      0      0                            10.36.80.67:40634  172.217.20.195:443  users:(("chrome",pid=2941,fd=56)) 
+
+✅ REPORT COMPLETED!
+📁 Log file saved to: /home/fay/devops-mini-projects/week-01/../logs/system_health_2025-07-28_12-05-05.log
