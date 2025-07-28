@@ -1,4 +1,4 @@
-name: System Health Report
+name: System Health Check
 
 on:
   push:
