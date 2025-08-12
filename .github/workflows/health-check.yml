@@ -1,0 +1,17 @@
+name: System Health Check
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    name: Run Health Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run System Health Script
+        run: bash ./week-01/system_health.sh
