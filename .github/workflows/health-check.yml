@@ -13,5 +13,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Make script executable
+        run: chmod +x ./week-01/system_health.sh
+        
       - name: Run System Health Script
-        run: bash ./week-01/system_health.sh
+        run: sudo bash ./week-01/system_health.sh
+
