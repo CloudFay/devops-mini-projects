@@ -2,7 +2,11 @@ name: System Health Check
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+    paths:
+      - "week-01/**"
+      - ".github/workflows/health-check.yml"
   workflow_dispatch:
 
 jobs:
@@ -18,4 +22,3 @@ jobs:
         
       - name: Run System Health Script
         run: sudo bash ./week-01/system_health.sh
-
